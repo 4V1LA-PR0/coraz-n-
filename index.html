@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="Imagen_de_WhatsApp_2025-11-13_a_las_17.46.37_ea8f791e-removebg-preview_hydrfu">
+  <title>Corazón para ti</title>
+  <link rel="stylesheet" href="main.css"/>
+</head>
+
+<body>
+
+  <!-- Botón menú hamburguesa -->
+  <button class="menu-btn" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Menú -->
+  <nav class="menu" id="menu">
+    <a href="#" onclick="mostrarSelectorMusica()">🎵 Música</a>
+    <a href="#" onclick="abrirMensaje()">💌 Poner mensaje</a>
+    <a href="#">📸 Foto</a>
+</nav>
+  <!-- Modal de selección de música -->
+<!-- Botón para abrir selector -->
+<a href="#" onclick="mostrarSelectorMusica()">🎵 Música</a>
+
+<!-- Modal -->
+<nav class="menu" id="menu">
+    <a href="#" onclick="mostrarSelectorMusica()">🎵 Música</a>
+    <a href="#" onclick="abrirMensaje()">💌 Poner mensaje</a>
+    <a href="#">📸 Foto</a>
+</nav>
+
+<!-- Modal para seleccionar música -->
+<div id="musicaModal" class="modal">
+  <div class="musicaBox">
+    <h2>Elige tu música</h2>
+    <button onclick="ponerMusica('musica/Spanish_Girl.mp3')">Spanish Girl</button>
+    <button onclick="ponerMusica('musica/Pideme_la_Luna.mp3')">Pídeme la Luna</button>
+    <button onclick="ponerMusica('musica/Querer_Querernos.mp3')">Querer Querernos</button>
+    <button onclick="ponerMusica('musica/Chachacha.mp3')">Chachachá</button>
+    <button onclick="ponerMusica('musica/Quimica_Mayor.mp3')">Química Mayor</button>
+    <br><br>
+    <button onclick="cerrarMusicaModal()">Cerrar</button>
+  </div>
+</div>
+<!-- Audio sin src inicial -->
+<audio id="bgMusic" loop></audio>
+
+
+
+  <!-- Fondo noche -->
+  <div class="night" aria-hidden="true"></div>
+
+  <!-- Música -->
+
+  <main>
+    <!-- Pantalla de bienvenida -->
+    <section id="welcome">
+      <div class="greetings">
+        <span>P</span>
+        <span>a</span>
+        <span>r</span>
+        <span>a</span>
+        <span> </span>
+        <span>T</span>
+        <span>i</span>
+      </div>
+      
+      <button id="enterBtn">Entrar</button>
+    </section>
+
+    <!-- Sección corazón -->
+    <section id="heartSection" class="hidden">
+      <div id="uiTop">
+        <input id="nameInput" type="text" placeholder="Escribe un nombre.." />
+        <button id="startBtn">Crear</button>
+      </div>
+
+      <canvas id="stage" width="900" height="700" aria-label="Animación del corazón"></canvas>
+      <div id="fraseOverlay"></div>
+   <!-- Modal de mensaje accesible desde el menú -->
+<div id="mensajeModal" style="display:none;">
+  <div class="mensajeBox">
+    <h2>Escribe tus frases</h2>
+    <textarea id="mensajeInput" placeholder="Escribe tus frases separadas por comas..."></textarea>
+    <button onclick="guardarMensaje()">Guardar</button>
+  </div>
+</div>
+</div>
+
+
+      <div id="controls">
+        <button id="resetBtn">Reiniciar</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cometas -->
+  <div id="cometas">
+    <div class="cometa"></div>
+    <div class="cometa"></div>
+    <div class="cometa"></div>
+  </div>
+
+  <!-- Planetas -->
+  <img id="planeta1" class="planeta" src="pixel.png" alt="Planeta 1">
+  <img id="planeta2" class="planeta" src="satur.png" alt="Planeta 2">
+
+  <!-- JS -->
+  <script src="main.js"></script>
+
+</body>
+</html>
