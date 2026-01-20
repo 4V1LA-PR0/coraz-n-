@@ -248,15 +248,26 @@ function abrirMensaje(){
 // Guardar mensajes
 function guardarMensaje(){
   const txt = document.getElementById("mensajeInput").value.trim();
-  if(!txt) return alert("Escribe algo 💖");
+  if(!txt){
+    alert("Escribe algo 💖");
+    return;
+  }
 
-  mensajesPersonales = txt.split(",").map(f => f.trim()).filter(f => f !== "");
+  mensajesPersonales = txt
+    .split(",")
+    .map(f => f.trim())
+    .filter(f => f !== "");
+
   indiceMensaje = 0;
   alert("Mensaje guardado 💖");
-  document.getElementById("mensajeModal").style.display = "none";
+
+  cerrarMensaje(); // 👈 cerrar después de guardar
 }
 
-
+// Cerrar modal de mensajes
+function cerrarMensaje() {
+  document.getElementById("mensajeModal").style.display = "none";
+}
   // Abrir modal para poner mensajes
 const canvasHeart = document.getElementById("stage");
 const fraseOverlay = document.getElementById("fraseOverlay");
@@ -274,7 +285,7 @@ if(canvasHeart){
     fraseOverlay.classList.add("show", lado ? "left":"right");
     lado = !lado;
 
-    setTimeout(()=> fraseOverlay.classList.remove("show"), 2600);
+    setTimeout(()=> fraseOverlay.classList.remove("show"), 6000);
   });
 }
 
@@ -294,5 +305,17 @@ function ponerMusica(ruta) {
   bgMusic.loop = true;
   cerrarMusicaModal();
 }
+
+/* ================= Buscar Música================= */
+function filtrarMusica(){
+  const input = document.getElementById("buscadorMusica").value.toLowerCase();
+  const items = document.querySelectorAll("#listaMusica li");
+
+  items.forEach(li => {
+    const texto = li.textContent.toLowerCase();
+    li.style.display = texto.includes(input) ? "block" : "none";
+  });
+}
+
 
 

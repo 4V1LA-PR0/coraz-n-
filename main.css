@@ -308,8 +308,8 @@ input[type=range]{vertical-align:middle}
   align-items: center;
   justify-content: left;
   font-family: 'Georgia', serif;
-  font-size: 1.1rem;
-  color: #2d0606;
+  font-size: 1.2rem;
+  color: #a63d3d;
   text-align: center;
   background: rgba(0,0,0,0.35);
   opacity: 0;
@@ -319,7 +319,7 @@ input[type=range]{vertical-align:middle}
 }
 
 #fraseOverlay.show{
-  opacity: 1;
+  opacity: 2;
 }
 
 #fraseOverlay.left{
@@ -382,3 +382,42 @@ input[type=range]{vertical-align:middle}
   text-align: center;
 }
 
+#buscadorMusica{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+#listaMusica{
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#listaMusica li{
+  padding: 10px;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#listaMusica li:hover{
+  background: rgba(255,255,255,0.35);
+}
+
+@media (max-width: 600px){
+  #listaMusica li{
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  #buscadorMusica{
+    font-size: 1rem;
+  }
+}

@@ -10,46 +10,58 @@
 
 <body>
 
-  <!-- Botón menú hamburguesa -->
-  <button class="menu-btn" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+<!-- Botón menú hamburguesa -->
+<button class="menu-btn" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
-  <!-- Menú -->
-  <nav class="menu" id="menu">
-    <a href="#" onclick="mostrarSelectorMusica()">🎵 Música</a>
-    <a href="#" onclick="abrirMensaje()">💌 Poner mensaje</a>
-    <a href="#">📸 Foto</a>
-</nav>
-  <!-- Modal de selección de música -->
-<!-- Botón para abrir selector -->
-<a href="#" onclick="mostrarSelectorMusica()">🎵 Música</a>
-
-<!-- Modal -->
-<nav class="menu" id="menu">
-    <a href="#" onclick="mostrarSelectorMusica()">🎵 Música</a>
-    <a href="#" onclick="abrirMensaje()">💌 Poner mensaje</a>
-    <a href="#">📸 Foto</a>
+<!-- MENÚ (SOLO UNO) -->
+<nav class="menu" id="menu" style="display:none;">
+  <a href="#" onclick="mostrarSelectorMusica()">🎵 Música</a>
+  <a href="#" onclick="abrirMensaje()">💌 Poner mensaje</a>
+  <a href="#">📸 Foto</a>
 </nav>
 
-<!-- Modal para seleccionar música -->
-<div id="musicaModal" class="modal">
+<!-- MODAL DE MÚSICA (OCULTO AL INICIO) -->
+<div id="musicaModal" class="modal" style="display:none;">
   <div class="musicaBox">
     <h2>Elige tu música</h2>
-    <button onclick="ponerMusica('musica/Spanish_Girl.mp3')">Spanish Girl</button>
-    <button onclick="ponerMusica('musica/Pideme_la_Luna.mp3')">Pídeme la Luna</button>
-    <button onclick="ponerMusica('musica/Querer_Querernos.mp3')">Querer Querernos</button>
-    <button onclick="ponerMusica('musica/Chachacha.mp3')">Chachachá</button>
-    <button onclick="ponerMusica('musica/Quimica_Mayor.mp3')">Química Mayor</button>
-    <br><br>
-    <button onclick="cerrarMusicaModal()">Cerrar</button>
+
+<input
+  type="text"
+  id="buscadorMusica"
+  placeholder="Buscar canción..."
+  onkeyup="filtrarMusica()"
+/>
+
+<ul id="listaMusica">
+  <li onclick="ponerMusica('musica/Spanish_Girl.mp3')">Spanish Girl</li>
+  <li onclick="ponerMusica('musica/Pideme_la_Luna.mp3')">Pídeme la Luna</li>
+  <li onclick="ponerMusica('musica/Querer_Querernos.mp3')">Querer Querernos</li>
+  <li onclick="ponerMusica('musica/Chachacha.mp3')">Chachachá</li>
+  <li onclick="ponerMusica('musica/Quimica_Mayor.mp3')">Química Mayor</li>
+  <li onclick="ponerMusica('musica/Its_Been_A_Long_Long_Time.mp3')">It's Been A Long Long Time</li>
+  <li onclick="ponerMusica('musica/BONSAI.mp3')">Bomsai</li>
+  <li onclick="ponerMusica('musica/amor_de_mis_amores.mp3')"> Amor, Amor de Mis Amores</li>
+  <li onclick="ponerMusica('musica/Die_With_A_Smile.mp3')">Die With A Smile</li>
+  <li onclick="ponerMusica('musica/Rosa_Pastel.mp3')">Rosa Pastel</li>
+  <li onclick="ponerMusica('musica/Piel_Canela.mp3')">Piel Canela</li>
+  <li onclick="ponerMusica('musica/Te_quiero_tanto.mp3')">Te quiero tanto</li>
+  <li onclick="ponerMusica('musica/I_Wanna_Be_Yours.mp3')">I Wanna Be Yours </li>
+  <li onclick="ponerMusica('musica/Alguien_como_Tú.mp3')">Alguien como Tú</li>
+  <li onclick="ponerMusica('musica/Sal_rosa.mp3')">Sal Rosa</li>
+  <li onclick="ponerMusica('musica/Leave_the_Door_Open.mp3')">Leave the Door Open</li>
+</ul>
+
+<button onclick="cerrarMusicaModal()">Cerrar</button>
+
   </div>
 </div>
-<!-- Audio sin src inicial -->
-<audio id="bgMusic" loop></audio>
 
+<!-- Audio -->
+<audio id="bgMusic" loop></audio>
 
 
   <!-- Fondo noche -->
@@ -86,12 +98,17 @@
 <div id="mensajeModal" style="display:none;">
   <div class="mensajeBox">
     <h2>Escribe tus frases</h2>
-    <textarea id="mensajeInput" placeholder="Escribe tus frases separadas por comas..."></textarea>
-    <button onclick="guardarMensaje()">Guardar</button>
+
+    <textarea
+      id="mensajeInput"
+      placeholder="Escribe tus frases separadas por comas..."></textarea>
+
+    <div class="mensajeBtns">
+      <button onclick="guardarMensaje()">Guardar</button>
+      <button onclick="cerrarMensaje()">Cerrar</button>
+    </div>
   </div>
 </div>
-</div>
-
 
       <div id="controls">
         <button id="resetBtn">Reiniciar</button>
