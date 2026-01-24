@@ -210,6 +210,19 @@ function toggleMenu() {
   const open = menu.style.display === "flex";
   menu.style.display = open ? "none" : "flex";
   btn.classList.toggle("active");
+  
+  menuBtn.addEventListener('click', () => {
+  // Si el menú está visible, lo ocultamos
+  if (menu.style.display === 'flex') {
+    menu.style.display = 'none';
+  } else {
+    // Si no, lo mostramos y lo posicionamos
+    menu.style.display = 'flex';
+    const rect = menuBtn.getBoundingClientRect();
+    menu.style.top = rect.bottom + 'px'; // debajo del botón
+    menu.style.left = rect.left + 'px';  // mismo lado que el botón
+  }
+});
 }
 
 /* ================= COMETAS ================= */
